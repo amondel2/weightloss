@@ -39,12 +39,13 @@ while($row = pg_fetch_assoc( $rs )) {
 	$orig_wieght = $row['intial_weight'];
 	$current_weight = $row2['weight'];
 	$loss = '';
+	$weightChange = $current_weight / $orig_wieght;
 	if($orig_wieght == $current_weight) {
 		$loss = '0';
 	} elseif ($orig_wieght > $current_weight) {
-		$loss = "Lost " . round(((($current_weight / $orig_wieght) - 1) * -100),2);
+		$loss = "Lost " .  round(($weightChange - 1) * -100,2);
 	} else {
-		$loss = "Gained " . round(((($orig_wieght / $current_weight) - 1) * -100),2);
+		$loss = "Gained " . round(($weightChange - 1) * 100,2);
 	}
 	
 		

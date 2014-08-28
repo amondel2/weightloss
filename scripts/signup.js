@@ -13,7 +13,7 @@ $(document).ready(function(){
 					}}
 				,"json");
 		}
-	})
+	});
 	$("#inputUserName").on("blur",function(){
 		if($(this).val().trim().length > 0) {
 		$.post( "createUser.php", {'inputUserName':$(this).val(),'action':'verify_user_id'}, function(data) {
